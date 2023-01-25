@@ -41,7 +41,7 @@ function App() {
     </Navbar>
 
 
-    <div className='main' >
+    <div class='main' >
 
     
       <Router>

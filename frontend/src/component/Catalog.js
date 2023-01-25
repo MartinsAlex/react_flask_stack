@@ -15,39 +15,46 @@ function Catalog() {
         { make: 'Toyota', model: 'Celica', price: 35000 },
         { make: 'Ford', model: 'Mondeo', price: 32000 },
         { make: 'Porsche', model: 'Boxter', price: 72000 },
-      ]);
+    ]);
 
-      const gridOptions = {
+    const gridOptions = {
         defaultColDef: {
-          sortable: true,
-          editable: false,
-          filter: true,
+            sortable: true,
+            editable: false,
+            filter: true,
+            
         },
         columnDefs: [
-          {
-            field: 'make',
-          },
-          {
-            field: 'model',
-          },
-          {
-            field: 'price',
-          }
+            {
+                field: 'make',
+                checkboxSelection: true
+            },
+            {
+                field: 'model',
+            },
+            {
+                field: 'price',
+            }
         ],
-      };
+    };
 
-      const onRowSelected = (params) => {
+    const onRowSelected = (params) => {
+
+        if (params.node.selected) {
+            setShowNextButton(true)
+        } else {
+            setShowNextButton(false)
+        }
+
         console.log({
-           id: params.data.make,
-           name: params.data.model,
-           username: params.data.price,
-           email: params.data.email,
-           phone: params.data.phone,
-           website: params.data.website,
-         });
-       };
+            make: params.data.make,
+            model: params.data.model,
+            price: params.data.price,
+        });
+        
+    };
 
-
+    const [showNextButton, setShowNextButton] = useState(false);
 
     useEffect(() => {
         // Update the document title using the browser API
@@ -98,6 +105,11 @@ function Catalog() {
                             </div>
                         </div>
                     </div>
+                </div>
+
+
+                <div className="row">
+                    {showNextButton ? <><button>test</button></> : null}
                 </div>
             </div>
         </div>
