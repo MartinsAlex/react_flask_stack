@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import { AgGridColumn, AgGridReact } from 'ag-grid-react';
-
+import Select from 'react-select';
 
 
 function Catalog() {
@@ -74,6 +74,15 @@ function Catalog() {
             });
     }, []);
 
+    const options = [
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' }
+      ]
+      
+      const MySelectComponent = () => (
+        <Select options={options} isMulti={true}/>
+      )
 
     return (<>
 
@@ -96,7 +105,8 @@ function Catalog() {
                                         rowSelection={'single'}
                                         onRowSelected={onRowSelected}
                                     />
-
+                                    
+                                    <MySelectComponent/>
                                 </div>
 
 
