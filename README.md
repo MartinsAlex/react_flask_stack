@@ -1,1 +1,1 @@
-# A React, Django, Postgres and Nginx docker stack
+# A React/Flask/Nginx dockerized stack
