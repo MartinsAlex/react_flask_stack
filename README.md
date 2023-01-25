@@ -1,0 +1,1 @@
+# A React, Django, Postgres and Nginx docker stack
